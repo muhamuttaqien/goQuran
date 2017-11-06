@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Image, Text } from 'react-native';
 
 export default class Splash extends Component {
     render() {
@@ -7,32 +7,42 @@ export default class Splash extends Component {
         const { viewStyle, titleStyle, subtitleStyle } = styles;
 
         return (
-            <View style={ viewStyle }>
-                <View>
-                    <Text style={ titleStyle }> GoQuran </Text>
+            <Image
+                source={ require('../assets/images/quran-background.png') }
+                style = { styles.imageStyle }>
+                <View style = { styles.viewStyle }>
+                    <View>
+                        <Text style={ titleStyle }> iQuran </Text>
+                    </View>
+                    <View>
+                        <Text style={ subtitleStyle }> Created by muhamuttaqien.com </Text>
+                    </View>
                 </View>
-                <View>
-                    <Text style={ subtitleStyle }> Created by muhamuttaqien.com </Text>
-                </View>
-            </View>
+            </Image>
         )
     }
 }
 
 const styles = {
+    imageStyle: {
+        flex: 1,
+        width: undefined,
+        height: undefined,
+        backgroundColor: 'transparent',
+    },
     viewStyle: {
-        backgroundColor: '#5067FF',
+        backgroundColor: 'rgba(104,185,207,0.90)', // #68B9CF
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     titleStyle: {
         color: 'white',
-        fontSize: 35,
+        fontSize: 40,
         fontWeight: 'bold'
     },
     subtitleStyle: {
         color: 'white',
-        fontWeight: '200'
+        fontWeight: 'normal'
     }
 }

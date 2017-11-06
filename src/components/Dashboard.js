@@ -10,7 +10,7 @@ import { Container, Body, Text, Header, Content, Card, CardItem, Left, Right, Bu
 const Dashboard = (props) => {
     return (
         <Container>
-            <Header style={{ backgroundColor: '#5067FF' }}>
+            <Header>
                 <Left>
                     <Button transparent>
                         <Icon name='home' />
