@@ -5,66 +5,83 @@ import {
   View
 } from 'react-native';
 
-import { Container, Body, Text, Header, Content, Card, CardItem, Left, Right, Button, Icon, Badge, Title, Footer, FooterTab } from 'native-base';
+import { Container, Body, Drawer, Text, Header, Content, Card, CardItem, Left, Right, Button, Icon, Badge, Title, Footer, FooterTab } from 'native-base';
 
-const Dashboard = (props) => {
-    return (
-        <Container>
-            <Header style={{ backgroundColor: '#5067FF' }}>
-                <Left>
-                    <Button transparent>
-                        <Icon name='home' />
-                    </Button>
-                </Left>
-                <Body>
-                    <Title>Dashboard</Title>
-                </Body>
-                <Right>
-                    <Button transparent>
-                        <Icon name='menu' />
-                    </Button>
-                </Right>
-            </Header>
+import SideBar from './SideBar';
+import Profile from './Profile';
+import { StackNavigator } from 'react-navigation';
 
-            <Content>
-                <Card>
-                    <CardItem header>
-                        <Body>
-                            <Text>GoQuran (Dev. Version)</Text>
-                        </Body>
-                    </CardItem>
-                    <CardItem>
-                        <Body>
-                            <Text>
-                                This is an app for al-Qur'an using react-native, react-redux, vector-icons and native base UI template.
-                            </Text>
-                        </Body>
-                    </CardItem>
-                </Card>
-            </Content>
-            <Footer>
-                <FooterTab>
-                    <Button badge vertical>
-                        <Badge><Text>2</Text></Badge>
-                        <Icon name="apps" />
-                        <Text>Apps</Text>
-                    </Button>
-                    <Button vertical>
-                        <Icon name="camera" />
-                        <Text>Camera</Text>
-                    </Button>
-                    <Button vertical active>
-                        <Icon active name="navigate" />
-                        <Text>Navigate</Text>
-                    </Button>
-                    <Button vertical>
-                        <Icon name="person" />
-                        <Text>Contact</Text>
-                    </Button>
-                </FooterTab>
-            </Footer>
-        </Container>
-    );
+class Dashboard extends Component<{}> {
+
+    closeDrawer = () => {
+        this.drawer._root.close()
+    };
+
+    openDrawer = () => {
+        this.drawer._root.open()
+    };
+
+    static navigationOptions = {
+        header: null,
+    };
+
+    render() {
+
+        const { navigate } = this.props.navigation;
+
+        return (
+            <Drawer
+                ref={(ref) => { this.drawer = ref; }}
+                content={<SideBar navigator={this.navigator} />}
+                onClose={() => this.closeDrawer()} >
+
+            <Container>
+                <Header>
+                    <Left>
+                        <Button transparent onPress = {() => this.openDrawer() }>
+                            <Icon name='menu' />
+                        </Button>
+                    </Left>
+                    <Body>
+                        <Title>Dashboard</Title>
+                    </Body>
+                    <Right>
+                        <Button transparent onPress = {() => navigate('Profile')}>
+                            <Icon name='person' />
+                        </Button>
+                    </Right>
+                </Header>
+
+                <Content>
+                    <Card>
+                        <CardItem header>
+                            <Body>
+                                <Text>iQuran (Dev. Version)</Text>
+                            </Body>
+                        </CardItem>
+                        <CardItem>
+                            <Body>
+                                <Text>
+                                    This is an app for al-Qur'an using react-native, react-redux, vector-icons and native base UI template.
+                                </Text>
+                            </Body>
+                        </CardItem>
+                    </Card>
+                </Content>
+            </Container>
+
+            </Drawer>
+        );
+    }
 };
 
-export default Dashboard;
+const AppInit = StackNavigator({
+    Dashboard: { screen: Dashboard },
+    Profile: { screen: Profile },
+});
+
+export default class App extends Component<{}> {
+    render() {
+        return <AppInit />
+    }
+}

@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -15,16 +9,24 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './src/reducers'
 
-import Dashboard from './src/components/Dashboard';
 import Splash from './src/components/Splash';
-import { StackNavigator } from 'react-navigation';
+import Dashboard from './src/components/Dashboard';
 
-export default class App extends Component<{}> {
+export default class SplashScreen extends Component<{}> {
   render() {
     return (
         <Provider store={ createStore(reducers) }>
-            <Splash />
+            <Dashboard />
         </Provider>
     );
   }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+});
