@@ -9,7 +9,7 @@ import { Body, Card, CardItem, Content, Text } from 'native-base';
 
 export default class Profile extends Component {
     static navigationOptions = {
-        title: 'Detail'
+        header: null
     };
 
     render() {
