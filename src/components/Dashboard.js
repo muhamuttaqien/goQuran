@@ -38,7 +38,7 @@ class Dashboard extends Component<{}> {
             <Container>
                 <Header>
                     <Left>
-                        <Button transparent onPress = {() => this.openDrawer() }>
+                        <Button transparent onPress = {() => this.openDrawer()}>
                             <Icon name='menu' />
                         </Button>
                     </Left>
