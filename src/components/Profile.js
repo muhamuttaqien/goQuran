@@ -5,7 +5,7 @@ import {
   View
 } from 'react-native';
 
-import { Content, Text } from 'native-base';
+import { Button, Content, Text } from 'native-base';
 
 export default class Profile extends Component {
     static navigationOptions = {
@@ -13,9 +13,14 @@ export default class Profile extends Component {
     };
 
     render() {
-        return(
-            <Content style = {{ backgroundColor: '#ffffff' }}>
 
+        const { navigate } = this.props.navigation;
+
+        return(
+            <Content>
+                <Button transparent onPress = {() => navigate('DetailProfile')}>
+                    <Text>Detail</Text>
+                </Button>
             </Content>
         )
     };

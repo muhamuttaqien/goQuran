@@ -9,6 +9,7 @@ import { Container, Body, Drawer, Text, Header, Content, Card, CardItem, Left, R
 
 import SideBar from './SideBar';
 import Profile from './Profile';
+import DetailProfile from './DetailProfile';
 import { StackNavigator } from 'react-navigation';
 
 class Dashboard extends Component<{}> {
@@ -78,6 +79,7 @@ class Dashboard extends Component<{}> {
 const AppInit = StackNavigator({
     Dashboard: { screen: Dashboard },
     Profile: { screen: Profile },
+    DetailProfile: { screen: DetailProfile },
 });
 
 export default class App extends Component<{}> {
