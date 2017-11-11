@@ -8,11 +8,8 @@ import {
 import { Container, Body, Drawer, Text, Header, Content, Card, CardItem, Left, Right, Button, Icon, Badge, Title, Footer, FooterTab } from 'native-base';
 
 import SideBar from './SideBar';
-import Profile from './Profile';
-import DetailProfile from './DetailProfile';
-import { StackNavigator } from 'react-navigation';
 
-class Dashboard extends Component<{}> {
+export default class Dashboard extends Component<{}> {
 
     closeDrawer = () => {
         this.drawer._root.close()
@@ -75,15 +72,3 @@ class Dashboard extends Component<{}> {
         );
     }
 };
-
-const AppInit = StackNavigator({
-    Dashboard: { screen: Dashboard },
-    Profile: { screen: Profile },
-    DetailProfile: { screen: DetailProfile },
-});
-
-export default class App extends Component<{}> {
-    render() {
-        return <AppInit />
-    }
-}

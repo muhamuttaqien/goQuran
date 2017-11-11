@@ -10,13 +10,13 @@ import { createStore } from 'redux';
 import reducers from './src/reducers'
 
 import Splash from './src/components/Splash';
-import Dashboard from './src/components/Dashboard';
+import AppInit from './src/config/router';
 
-export default class SplashScreen extends Component<{}> {
+export default class App extends Component<{}> {
   render() {
     return (
         <Provider store={ createStore(reducers) }>
-            <Dashboard />
+            <AppInit />
         </Provider>
     );
   }
