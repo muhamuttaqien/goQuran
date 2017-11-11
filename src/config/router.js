@@ -5,7 +5,7 @@ import {
   View
 } from 'react-native';
 
-import { TabNavigator, StackNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
 
 import Dashboard from '../components/Dashboard';
 import Profile from '../components/Profile';
